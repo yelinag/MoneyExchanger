@@ -2,6 +2,7 @@ package service;
 
 import entity.RateEntity;
 import entity.TransactionEntity;
+import util.MathUtil;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class RateCalculator {
                 getMoneyWithDefaultCcy(transactionEntity));
         double actualRate = CurrencyMatcher.getInstance(rates).getCurrencyActualRate(transactionEntity.getBasedCurrecny(),
                 transactionEntity.getWantedCurrency(), transactionEntity.getTransactionTime());
-        return actualRate * (1 - 0.0001 * markup);
+        return MathUtil.roundRate(actualRate * (1 - 0.0001 * markup));
     }
 
     private double getMoneyWithDefaultCcy(TransactionEntity transactionEntity){

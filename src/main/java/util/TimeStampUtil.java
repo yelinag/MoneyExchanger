@@ -8,7 +8,7 @@ public class TimeStampUtil {
 
     public static Timestamp convertStringToTimeStamp(String time){
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
             Date parsedDate = dateFormat.parse(time);
             Timestamp timestamp = new Timestamp(parsedDate.getTime());
             return timestamp;

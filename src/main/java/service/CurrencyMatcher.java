@@ -24,6 +24,7 @@ public class CurrencyMatcher {
     }
 
     public double getCurrencyActualRate(String basedCcy, String wantedCcy, Timestamp timestamp){
+        if(basedCcy.equals(wantedCcy)) return 1;
         Iterator<RateEntity> iterator = rates.iterator();
         while(iterator.hasNext()){
             RateEntity rateEntity = iterator.next();

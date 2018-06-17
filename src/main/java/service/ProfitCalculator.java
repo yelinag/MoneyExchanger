@@ -43,7 +43,7 @@ public class ProfitCalculator {
         if(transactionEntity.getWantedCurrency().equals(shopBasedCcy))
             return profitInWantedCcy;
         double basedCcyRate = CurrencyMatcher.getInstance(rates).getCurrencyActualRate(
-                transactionEntity.getBasedCurrecny(),
+                transactionEntity.getWantedCurrency(),
                 shopBasedCcy, transactionEntity.getTransactionTime());
         return profitInWantedCcy * basedCcyRate;
     }
